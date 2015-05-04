@@ -15,10 +15,11 @@ func Prettify(s string) (string, error) {
 	params, err := url.ParseQuery(u.RawQuery)
 
 	pretty := map[string]interface{}{
-		"scheme": u.Scheme,
-		"host":   u.Host,
-		"path":   u.Path,
-		"params": params,
+		"scheme":   u.Scheme,
+		"host":     u.Host,
+		"path":     u.Path,
+		"params":   params,
+		"fragment": u.Fragment,
 	}
 
 	output, err := json.MarshalIndent(pretty, "", "    ")
